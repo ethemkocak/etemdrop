@@ -1,3 +1,9 @@
+import Cases from "./components/Cases";
+
 export default function Home() {
-  return <div></div>;
+  return (
+    <div>
+      <Cases />
+    </div>
+  );
 }
