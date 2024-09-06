@@ -17,12 +17,13 @@ const Cases = () => {
     { src: "fracture.png", title: "Fracture Case", price: "$0.25" },
     { src: "clutch.png", title: "Clutch Case", price: "$0.40" },
     { src: "prisma_2.png", title: "Prisma 2 Case", price: "$0.70" },
+    { src: "prisma.png", title: "Prisma Case", price: "$0.70" },
     { src: "cs20.png", title: "CS20 Case", price: "$0.60" },
     { src: "danger_zone.png", title: "Danger Zone Case", price: "$0.75" },
     { src: "horizon.png", title: "Horizon Case", price: "$0.75" },
     { src: "spectrum_2.png", title: "Spectrum 2 Case", price: "$1.65" },
     { src: "spectrum.png", title: "Spectrum Case", price: "$2.40" },
-    { src: "glove.png", title: "Glove Case", price: "$5" },
+    { src: "glove.png", title: "Glove Case", price: "$5.00" },
     { src: "gamma_2.png", title: "Gamma 2 Case", price: "$2.10" },
     { src: "gamma.png", title: "Gamma Case", price: "$2.10" },
     { src: "chroma_3.png", title: "Chroma 3 Case", price: "$1.90" },
@@ -31,6 +32,8 @@ const Cases = () => {
     { src: "revolver.png", title: "Revolver Case", price: "$1.80" },
     { src: "shadow.png", title: "Shadow Case", price: "$0.90" },
     { src: "falchion.png", title: "Falchion Case", price: "$0.95" },
+    { src: "huntsman_weapon.png", title: "Huntsman Case", price: "$1.80" },
+    { src: "shattered_web.png", title: "Shattered Web Case", price: "$4.50" },
   ];
 
   // Display either 10 cases or all depending on the state
