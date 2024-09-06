@@ -7,7 +7,7 @@ const Cases = () => {
   const cases = [
     { src: "kilowatt.png", title: "Kilowatt Case", price: "$3.60" },
     { src: "revolution.png", title: "Revolution Case", price: "$0.30" },
-    { src: "recoil.png", title: "Recoil Case", price: "$0.20" },
+    { src: "recoil.webp", title: "Recoil Case", price: "$0.20" },
     {
       src: "dreams_nightmares.png",
       title: "Dreams & Nightmares Case",
@@ -26,6 +26,8 @@ const Cases = () => {
     { src: "gamma_2.png", title: "Gamma 2 Case", price: "$2.10" },
     { src: "gamma.png", title: "Gamma Case", price: "$2.10" },
     { src: "chroma_3.png", title: "Chroma 3 Case", price: "$1.90" },
+    { src: "chroma_2.png", title: "Chroma 2 Case", price: "$1.90" },
+    { src: "chroma.png", title: "Chroma Case", price: "$1.90" },
     { src: "revolver.png", title: "Revolver Case", price: "$1.80" },
     { src: "shadow.png", title: "Shadow Case", price: "$0.90" },
     { src: "falchion.png", title: "Falchion Case", price: "$0.95" },
@@ -52,7 +54,7 @@ const Cases = () => {
       ))}
 
       {/* Button to toggle between showing more or fewer cases */}
-      <div className="absolute bottom-0 right-0 mr-5 mb-5">
+      <div className="ml-auto mt-2 mr-5 mb-5">
         {!showMore ? (
           <button
             onClick={() => setShowMore(true)}
