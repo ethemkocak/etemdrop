@@ -11,7 +11,7 @@ const Header = () => {
         <div className="mt-10">
           <Link
             href={"/kilowatt"}
-            className="shadow-lg bg-app-yellow px-5 py-3 text-xl rounded-full text-purple-950"
+            className="shadow-lg bg-app-yellow-1 px-5 py-3 text-xl rounded-full text-purple-950"
           >
             OPEN YOUR FREE CASE NOW
           </Link>
