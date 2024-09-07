@@ -4,74 +4,122 @@ import React from "react";
 import CaseAnimation from "../components/CaseAnimation";
 
 const KilowattPage: React.FC = () => {
-  const items = [
+  const kilowattItems = [
     {
-      src: "ak_47_inheritance.png",
+      src: "inheritance.webp",
       title: "AK-47 | Inheritance",
       chance: "0.06%",
+      rarity: "covert",
     },
     {
-      src: "awp_chrome_cannon.png",
+      src: "chrome_cannon.webp",
       title: "AWP | Chrome Cannon",
       chance: "0.11%",
+      rarity: "covert",
     },
     {
-      src: "m4a1s_black_lotus.png",
+      src: "black_lotus.webp",
       title: "M4A1-S | Black Lotus",
       chance: "0.17%",
+      rarity: "classified",
     },
     {
-      src: "zeus_x27_olympus.png",
+      src: "olympus.webp",
       title: "Zeus x27 | Olympus",
       chance: "0.29%",
+      rarity: "classified",
     },
     {
-      src: "usp_s_jawbreaker.png",
+      src: "jawbreaker.webp",
       title: "USP-S | Jawbreaker",
       chance: "0.31%",
+      rarity: "restricted",
     },
     {
-      src: "glock_18_block_18.png",
+      src: "block_18.webp",
       title: "Glock-18 | Block-18",
       chance: "0.47%",
+      rarity: "restricted",
     },
     {
-      src: "sawed_off_analog_input.png",
+      src: "analog_input.webp",
       title: "Sawed-Off | Analog Input",
       chance: "0.54%",
+      rarity: "restricted",
     },
-    { src: "m4a4_etch_lord.png", title: "M4A4 | Etch Lord", chance: "0.58%" },
     {
-      src: "five_seven_hybrid.png",
+      src: "etch_lord.webp",
+      title: "M4A4 | Etch Lord",
+      chance: "0.58%",
+      rarity: "restricted",
+    },
+    {
+      src: "hybrid.webp",
       title: "Five-SeveN | Hybrid",
       chance: "0.58%",
+      rarity: "mil-spec",
     },
-    { src: "mp7_just_smile.png", title: "MP7 | Just Smile", chance: "0.59%" },
     {
-      src: "mac_10_light_box.png",
+      src: "just_smile.webp",
+      title: "MP7 | Just Smile",
+      chance: "0.59%",
+      rarity: "mil-spec",
+    },
+    {
+      src: "light_box.webp",
       title: "MAC-10 | Light Box",
       chance: "0.73%",
+      rarity: "mil-spec",
     },
     {
-      src: "dual_berettas_hideout.png",
+      src: "hideout.webp",
       title: "Dual Berettas | Hideout",
       chance: "0.84%",
+      rarity: "mil-spec",
     },
-    { src: "ssg_08_dezastre.png", title: "SSG 08 | Dezastre", chance: "0.90%" },
-    { src: "xm1014_irezumi.png", title: "XM1014 | Irezumi", chance: "0.95%" },
-    { src: "nova_dark_sigil.png", title: "Nova | Dark Sigil", chance: "0.96%" },
     {
-      src: "ump_45_motorized.png",
+      src: "dezastre.webp",
+      title: "SSG 08 | Dezastre",
+      chance: "0.90%",
+      rarity: "mil-spec",
+    },
+    {
+      src: "irezumi.webp",
+      title: "XM1014 | Irezumi",
+      chance: "0.95%",
+      rarity: "mil-spec",
+    },
+    {
+      src: "dark_sigil.webp",
+      title: "Nova | Dark Sigil",
+      chance: "0.96%",
+      rarity: "mil-spec",
+    },
+    {
+      src: "motorized.webp",
       title: "UMP-45 | Motorized",
       chance: "0.98%",
+      rarity: "mil-spec",
     },
-    { src: "tec_9_slag.png", title: "Tec-9 | Slag", chance: "0.99%" },
+    {
+      src: "slag.webp",
+      title: "Tec-9 | Slag",
+      chance: "0.99%",
+      rarity: "mil-spec",
+    },
+  ];
+
+  const kilowattknife = [
+    { src: "gold.webp", title: "Random Knife", chance: "0.0001%" },
   ];
 
   return (
     <div>
-      <h1>Kilowatt Case</h1>
-      <CaseAnimation items={items} />
+      <CaseAnimation
+        items={kilowattItems}
+        knives={kilowattknife}
+        caseName="kilowatt"
+      />
     </div>
   );
 };

@@ -1,34 +1,78 @@
-.animationArea {
-    display: flex;
-    overflow: hidden;
+.container {
     position: relative;
     width: 100%;
-    height: 200px; /* Animasyon kutusunun yüksekliği */
+    margin: 0 auto;
   }
   
-  .itemBox {
-    width: 150px;
-    height: 200px;
-    background: lightgray;
-    border: 1px solid #ddd;
-    margin-right: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-  }
-  
-  .itemBox img {
+  .caseContainer {
+    position: relative;
     width: 100%;
-    height: auto;
+    overflow: hidden;
+    border: 2px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
   }
   
-  @keyframes spin {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-100%);
-    }
+  .items {
+    display: flex;
+    transition: transform 3s ease; /* Smooth transition */
+  }
+  
+  .slide {
+    transform: translateX(-1000px); /* Move to the left */
+  }
+  
+  .item {
+    min-width: 100px;
+    margin: 0 5px;
+    text-align: center;
+    border: 2px solid #fff;
+    padding: 5px;
+    border-radius: 5px;
+    position: relative;
+  }
+  
+  .itemImage {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .rarityBanner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 12px;
+    padding: 2px;
+    text-align: center;
+  }
+  
+  .pointer {
+    width: 5px;
+    height: 50px;
+    background-color: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .spinButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ccc;
+  }
+  
+  .selectedItem {
+    text-align: center;
+    margin-top: 20px;
+    color: #ccc;
+  }
+  
+  .selectedImage {
+    width: 100px;
+    height: 100px;
   }
   
