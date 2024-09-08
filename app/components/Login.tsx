@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import axios from "axios";
+import { supabase } from "../lib/supabaseClient";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -10,19 +10,15 @@ const Login = () => {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      const response = await axios.post(
-        "http://localhost:1337/api/auth/local",
-        {
-          identifier: email, // identifier, email ya da username olabilir
-          password: password,
-        }
-      );
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
 
-      setSuccess("Login successful!");
-      console.log("Login successful:", response.data);
-    } catch (err) {
+    if (error) {
       setError("Login failed. Please check your credentials.");
+    } else {
+      setSuccess("Login successful!");
     }
   };
 
@@ -37,7 +33,7 @@ const Login = () => {
               type="email"
               className="p-3 rounded-lg"
               id="email"
-              placeholder="email"
+              placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -49,7 +45,7 @@ const Login = () => {
               type="password"
               className="p-3 rounded-lg"
               id="password"
-              placeholder="password"
+              placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required

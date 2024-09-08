@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import axios from "axios";
+import { supabase } from "../lib/supabaseClient";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -11,20 +11,22 @@ const Signup = () => {
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      const response = await axios.post(
-        "http://localhost:1337/api/auth/local/register",
-        {
-          username,
-          email,
-          password,
-        }
-      );
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: {
+          username, // Kullanıcı adı gibi ek bilgileri ekleyebilirsiniz
+        },
+      },
+    });
 
-      setSuccess("Signup successful!");
-      console.log("Signup successful:", response.data);
-    } catch (err) {
+    if (error) {
       setError("Signup failed. Please try again.");
+    } else {
+      setSuccess(
+        "Signup successful! Please check your email for confirmation."
+      );
     }
   };
 
