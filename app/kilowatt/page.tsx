@@ -110,7 +110,12 @@ const KilowattPage: React.FC = () => {
   ];
 
   const kilowattknife = [
-    { src: "gold.webp", title: "Random Knife", chance: "0.0001%" },
+    {
+      src: "gold.webp",
+      title: "Random Knife",
+      chance: "0.26%",
+      rarity: "gold",
+    },
   ];
 
   return (

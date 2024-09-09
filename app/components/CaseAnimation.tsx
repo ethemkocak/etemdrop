@@ -17,6 +17,24 @@ interface CaseAnimationProps {
   caseName: string;
 }
 
+// Function to map rarity to background colors
+const getRarityColor = (rarity?: string) => {
+  switch (rarity) {
+    case "covert":
+      return "bg-red-600"; // Kırmızı için Covert
+    case "classified":
+      return "bg-pink-600"; // Pembe için Classified
+    case "restricted":
+      return "bg-purple-600"; // Mor için Restricted
+    case "mil-spec":
+      return "bg-blue-600"; // Mavi için Mil-Spec
+    case "gold":
+      return "bg-yellow-400"; // Altın için Gold
+    default:
+      return "bg-gray-600"; // Varsayılan renk
+  }
+};
+
 const CaseAnimation: React.FC<CaseAnimationProps> = ({
   items,
   knives,
@@ -97,10 +115,15 @@ const CaseAnimation: React.FC<CaseAnimationProps> = ({
         {/* Slider component with custom settings */}
         <Slider {...settings} ref={sliderRef}>
           {repeatedItems.map((item, index) => (
-            <div key={index}>
+            <div
+              key={index}
+              className={`p-2 ${getRarityColor(item.rarity)} rounded-lg`}
+            >
               <img src={`/${caseName}/${item.src}`} alt={item.title} />
-              <p>{item.title}</p>
-              <div>{item.rarity?.toUpperCase()}</div>
+              <p className="text-center text-white font-bold">{item.title}</p>
+              <div className="text-center text-white">
+                {item.rarity?.toUpperCase()}
+              </div>
             </div>
           ))}
         </Slider>

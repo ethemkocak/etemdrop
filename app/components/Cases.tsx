@@ -195,7 +195,7 @@ const Cases = () => {
   const displayedCases = showMore ? cases : cases.slice(0, 10);
 
   return (
-    <div className="bg-zinc-900 rounded-lg w-3/4 mx-auto flex flex-col justify-center items-center mt-10 relative">
+    <div className=" w-3/4 mx-auto flex flex-col justify-center items-center mt-10 relative">
       {/* Özel Kasalar */}
       <div className="w-full flex flex-wrap justify-center mb-8">
         {special_case.map((item, index) => (
@@ -217,7 +217,7 @@ const Cases = () => {
       <div className="w-full flex flex-wrap justify-center">
         {displayedCases.map((item, index) => (
           <Link key={index} href={item.link ?? "#"} passHref>
-            <div className="bg-slate-400 w-48 h-48 rounded-xl flex flex-col justify-center items-center gap-3 ml-5 mt-5 cursor-pointer">
+            <div className="bg-gradient-to-b from-purple-950 to-purple-600 border-4  border-violet-500 w-48 h-48 rounded-xl flex flex-col justify-center items-center gap-3 ml-5 mt-5 cursor-pointer">
               <img
                 src={"/cases/" + item.src}
                 alt={item.title}
