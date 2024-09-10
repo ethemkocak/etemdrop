@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { BACKEND_URL } from "../page";
+import { BACKEND_URL } from "../config";
 const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
