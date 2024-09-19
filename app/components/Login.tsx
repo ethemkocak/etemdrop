@@ -41,10 +41,8 @@ const Login = () => {
 
       setSuccess("Login successful!");
 
-      // Kullanıcıyı başarılı girişten sonra yönlendir ve sayfayı yeniden yükle
-      router.push("/"); // Ana sayfaya yönlendir
-
-      window.location.reload(); // Sayfayı yeniden yükle
+      // Kullanıcıyı başarılı girişten sonra yönlendir
+      router.push("/main-menu"); // "main-menu" sayfasına yönlendir
     } catch (error: unknown) {
       if (error instanceof Error) {
         setError(
