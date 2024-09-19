@@ -2,8 +2,20 @@
 
 import React from "react";
 import CaseAnimation from "../components/CaseAnimation";
-
+import { useEffect, useState } from "react";
 const KilowattPage: React.FC = () => {
+  // Fisher-Yates (Knuth) Shuffle Algorithm
+  function shuffleArray(
+    array: { src: string; title: string; chance: string; rarity: string }[]
+  ) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1)); // Get random index
+      [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+    }
+    return array;
+  }
+
+  // Original arrays
   const kilowattItems = [
     {
       src: "inheritance.webp",
@@ -109,7 +121,7 @@ const KilowattPage: React.FC = () => {
     },
   ];
 
-  const kilowattknife = [
+  const kilowattKnives = [
     {
       src: "gold.webp",
       title: "Random Knife",
@@ -117,12 +129,20 @@ const KilowattPage: React.FC = () => {
       rarity: "gold",
     },
   ];
+  const [shuffledItems, setShuffledItems] = useState(kilowattItems);
+  const [shuffledKnives, setShuffledKnives] = useState(kilowattKnives);
+  // Shuffle both arrays using Fisher-Yates algorithm
+  useEffect(() => {
+    // Shuffle the array only on the client side
+    setShuffledItems(shuffleArray([...kilowattItems]));
+    setShuffledKnives(shuffleArray([...kilowattKnives]));
+  }, []); // Empty dependency array ensures this runs only after the component mounts
 
   return (
     <div>
       <CaseAnimation
-        items={kilowattItems}
-        knives={kilowattknife}
+        items={shuffledItems}
+        knives={shuffledKnives}
         caseName="kilowatt"
       />
     </div>
