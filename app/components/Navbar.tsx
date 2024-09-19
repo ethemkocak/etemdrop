@@ -2,29 +2,24 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { supabase } from "../lib/supabaseClient"; // Supabase import ediliyor
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const checkUser = async () => {
-      const {
-        data: { session },
-      } = await supabase.auth.getSession(); // Oturum bilgisini Supabase'den alıyoruz
+    // Oturum bilgisini yerel depolamadan al
+    const token = localStorage.getItem("token");
 
-      if (session) {
-        setIsLoggedIn(true); // Oturum varsa kullanıcı giriş yapmıştır
-      } else {
-        setIsLoggedIn(false); // Oturum yoksa kullanıcı giriş yapmamıştır
-      }
-    };
-
-    checkUser(); // Sayfa yüklendiğinde oturum kontrolü yapılır
+    if (token) {
+      setIsLoggedIn(true); // Token varsa kullanıcı giriş yapmıştır
+    } else {
+      setIsLoggedIn(false); // Token yoksa kullanıcı giriş yapmamıştır
+    }
   }, []);
 
   const handleLogout = async () => {
-    await supabase.auth.signOut(); // Supabase oturumu kapat
+    // Çıkış işlemi
+    localStorage.removeItem("token"); // Token'ı yerel depolamadan kaldır
     setIsLoggedIn(false); // Durumu güncelle
   };
 

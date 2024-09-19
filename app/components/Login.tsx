@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { useRouter } from "next/navigation"; // Yönlendirme için
+import { useRouter } from "next/navigation";
 import { BACKEND_URL } from "../config";
 
 const Login = () => {
@@ -22,10 +22,9 @@ const Login = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }), // Giriş bilgilerini JSON'a dönüştür
+        body: JSON.stringify({ email, password }),
       });
 
-      // HTTP durum kodlarını daha doğru kontrol etmek için
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(
@@ -36,17 +35,17 @@ const Login = () => {
 
       const data = await response.json();
 
-      // Eğer token varsa, localStorage'a kaydet
       if (data.token) {
         localStorage.setItem("token", data.token);
       }
 
       setSuccess("Login successful!");
 
-      // Kullanıcıyı başarılı girişten sonra yönlendir
-      router.push("/main-menu"); // "main-menu" sayfasına yönlendir
+      // Kullanıcıyı başarılı girişten sonra yönlendir ve sayfayı yeniden yükle
+      router.push("/"); // Ana sayfaya yönlendir
+
+      window.location.reload(); // Sayfayı yeniden yükle
     } catch (error: unknown) {
-      // Hata mesajını daha açıklayıcı hale getir
       if (error instanceof Error) {
         setError(
           error.message || "Login failed. Please check your credentials."

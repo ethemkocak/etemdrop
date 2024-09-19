@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { useRouter } from "next/navigation"; // Next.js yönlendirme için
+import { useRouter } from "next/navigation";
 import { BACKEND_URL } from "../config";
 
 const Signup = () => {
@@ -14,6 +14,9 @@ const Signup = () => {
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(""); // Her yeni denemede hatayı sıfırla
+    setSuccess(""); // Başarı mesajını sıfırla
+
     try {
       const response = await fetch(BACKEND_URL + "/auth/register", {
         method: "POST",
@@ -24,23 +27,32 @@ const Signup = () => {
       });
 
       if (!response.ok) {
-        throw new Error(`Error: ${response.status} - ${response.statusText}`);
+        const errorData = await response.json();
+        throw new Error(
+          errorData.message ||
+            `Error: ${response.status} - ${response.statusText}`
+        );
       }
 
-      // Backend'den dönen veriyi al
       const data = await response.json();
 
-      // Eğer token varsa, bunu localStorage'a veya cookie'ye kaydet
       if (data.token) {
         localStorage.setItem("token", data.token); // Token'ı sakla
       }
 
       setSuccess("Signup successful!");
 
-      // Başarılı bir kayıt sonrası kullanıcıyı ana menüye yönlendir
-      router.push("/main-menu"); // "main-menu" sayfasına yönlendir
-    } catch (error) {
-      setError("Signup failed. Please check your credentials.");
+      // Başarılı bir kayıt sonrası kullanıcıyı ana menüye yönlendir ve sayfayı yeniden yükle
+      router.push("/"); // Ana sayfaya yönlendir
+      window.location.reload(); // Sayfayı yeniden yükle
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setError(
+          error.message || "Signup failed. Please check your credentials."
+        );
+      } else {
+        setError("An unknown error occurred.");
+      }
     }
   };
 
