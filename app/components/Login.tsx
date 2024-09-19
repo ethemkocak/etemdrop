@@ -44,7 +44,7 @@ const Login = () => {
       setSuccess("Login successful!");
 
       // Kullanıcıyı başarılı girişten sonra yönlendir
-      router.push("/main-menu"); // "main-menu" sayfasına yönlendir
+      router.push("/"); // "main-menu" sayfasına yönlendir
     } catch (error: unknown) {
       // Hata mesajını daha açıklayıcı hale getir
       if (error instanceof Error) {
