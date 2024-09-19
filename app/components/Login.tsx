@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation"; // Yönlendirme için
 import { BACKEND_URL } from "../config";
 
 const Login = () => {
@@ -8,28 +9,51 @@ const Login = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
+  const router = useRouter(); // Yönlendirme için useRouter hook'u
+
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(""); // Her yeni denemede hatayı sıfırla
+    setSuccess(""); // Başarı mesajını sıfırla
+
     try {
       const response = await fetch(BACKEND_URL + "/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }), // Convert JavaScript object to JSON
+        body: JSON.stringify({ email, password }), // Giriş bilgilerini JSON'a dönüştür
       });
 
-      // Check if the response is ok (status code 200-299)
+      // HTTP durum kodlarını daha doğru kontrol etmek için
       if (!response.ok) {
-        throw new Error(`Error: ${response.status} - ${response.statusText}`);
+        const errorData = await response.json();
+        throw new Error(
+          errorData.message ||
+            `Error: ${response.status} - ${response.statusText}`
+        );
       }
 
-      // Parse JSON response
       const data = await response.json();
+
+      // Eğer token varsa, localStorage'a kaydet
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+      }
+
       setSuccess("Login successful!");
-      return data; // Return the response data
-    } catch (error) {
-      setError("Login failed. Please check your credentials.");
+
+      // Kullanıcıyı başarılı girişten sonra yönlendir
+      router.push("/main-menu"); // "main-menu" sayfasına yönlendir
+    } catch (error: unknown) {
+      // Hata mesajını daha açıklayıcı hale getir
+      if (error instanceof Error) {
+        setError(
+          error.message || "Login failed. Please check your credentials."
+        );
+      } else {
+        setError("An unknown error occurred.");
+      }
     }
   };
 

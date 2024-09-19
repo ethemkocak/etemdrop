@@ -1,12 +1,16 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation"; // Next.js yönlendirme için
 import { BACKEND_URL } from "../config";
+
 const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+
+  const router = useRouter(); // yönlendirme için useRouter hook'unu kullan
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,15 +23,22 @@ const Signup = () => {
         body: JSON.stringify({ username, email, password }),
       });
 
-      // Check if the response is ok (status code 200-299)
       if (!response.ok) {
         throw new Error(`Error: ${response.status} - ${response.statusText}`);
       }
 
-      // Parse JSON response
+      // Backend'den dönen veriyi al
       const data = await response.json();
+
+      // Eğer token varsa, bunu localStorage'a veya cookie'ye kaydet
+      if (data.token) {
+        localStorage.setItem("token", data.token); // Token'ı sakla
+      }
+
       setSuccess("Signup successful!");
-      return data; // Return the response data
+
+      // Başarılı bir kayıt sonrası kullanıcıyı ana menüye yönlendir
+      router.push("/main-menu"); // "main-menu" sayfasına yönlendir
     } catch (error) {
       setError("Signup failed. Please check your credentials.");
     }
