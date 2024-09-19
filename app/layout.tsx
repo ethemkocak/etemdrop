@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+//import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "Etemdrop",
@@ -14,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-gradient-to-b from-purple-900 to-purple-600">
+      <body className="bg-[#181818]">
         <Navbar />
         {children}
       </body>

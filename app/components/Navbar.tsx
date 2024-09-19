@@ -30,7 +30,7 @@ const Navbar = () => {
 
   return (
     <div
-      className="flex justify-between bg-app-yellow bg-app-yellow-2 py-5"
+      className="flex justify-between bg-app-yellow bg-[#2e2e2e] py-5"
       style={{ boxShadow: "10px black" }}
     >
       <Link href={"/"}>
@@ -58,13 +58,13 @@ const Navbar = () => {
             {/* Kullanıcı giriş yapmadıysa Giriş Yap ve Kayıt Ol butonlarını göster */}
             <Link
               href={"/login"}
-              className="text-white bg-purple-600 rounded-md p-3"
+              className="text-white bg-[#0077FF] rounded-md p-3"
             >
               Giriş Yap
             </Link>
             <Link
               href={"/signup"}
-              className="text-white bg-purple-600 rounded-md p-3"
+              className="text-white bg-[#0077FF] rounded-md p-3"
             >
               Kayıt Ol
             </Link>

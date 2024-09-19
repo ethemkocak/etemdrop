@@ -3,7 +3,8 @@ import Link from "next/link";
 import { useState } from "react";
 
 const Cases = () => {
-  const [showMore, setShowMore] = useState(false);
+  const [showNormalCases, setShowNormalCases] = useState(true);
+  const [showSpecialCases, setShowSpecialCases] = useState(true);
 
   const cases = [
     {
@@ -191,63 +192,89 @@ const Cases = () => {
     },
   ];
 
-  // Display either 10 cases or all depending on the state
-  const displayedCases = showMore ? cases : cases.slice(0, 10);
-
   return (
-    <div className=" w-3/4 mx-auto flex flex-col justify-center items-center mt-10 relative">
-      {/* Özel Kasalar */}
-      <div className="w-full flex flex-wrap justify-center mb-8">
-        {special_case.map((item, index) => (
-          <Link key={index} href={item.link} passHref>
-            <div className="bg-yellow-400 w-48 h-48 rounded-xl flex flex-col justify-center items-center gap-3 ml-5 mt-5 cursor-pointer">
-              <img
-                src={"/special_case/" + item.src}
-                alt={item.title}
-                className="w-28 h-24"
-              />
-              <h2 className="text-sm">{item.title}</h2>
-              <h4 className="bg-teal-700 rounded-sm p-1">{item.price}</h4>
-            </div>
-          </Link>
-        ))}
+    <div className="w-3/4 mx-auto flex flex-col justify-center items-center mt-10 relative">
+      {/* Özel Kasalar Başlığı ve Çizgisi */}
+      <div className="flex items-center justify-between w-full">
+        <img src="diamond.png" />
+        <h2 className="text-2xl font-bold text-white">SPECIAL CASES</h2>
+        <div className="border-t border-gray-500 w-3/4 ml-5"></div>
+        {/* Show/Hide Butonu */}
+        <button
+          onClick={() => setShowSpecialCases(!showSpecialCases)}
+          className="text-gray-400 flex items-center cursor-pointer ml-2"
+        >
+          {showSpecialCases ? (
+            <>
+              HIDE <span className="ml-1">▲</span>
+            </>
+          ) : (
+            <>
+              SHOW <span className="ml-1">▼</span>
+            </>
+          )}
+        </button>
       </div>
 
-      {/* Normal Kasalar */}
-      <div className="w-full flex flex-wrap justify-center">
-        {displayedCases.map((item, index) => (
-          <Link key={index} href={item.link ?? "#"} passHref>
-            <div className="bg-gradient-to-b from-purple-950 to-purple-600 border-4  border-violet-500 w-48 h-48 rounded-xl flex flex-col justify-center items-center gap-3 ml-5 mt-5 cursor-pointer">
-              <img
-                src={"/cases/" + item.src}
-                alt={item.title}
-                className="w-28 h-24"
-              />
-              <h2 className="text-sm">{item.title}</h2>
-              <h4 className="bg-teal-700 rounded-sm p-1">{item.price}</h4>
-            </div>
-          </Link>
-        ))}
+      {/* Özel Kasalar (gizlenebilir) */}
+      {showSpecialCases && (
+        <div className="w-full flex flex-wrap justify-center mb-8">
+          {special_case.map((item, index) => (
+            <Link key={index} href={item.link} passHref>
+              <div className="bg-[#FFA500] w-48 h-48 rounded-2xl flex flex-col justify-center items-center gap-3 ml-5 mt-5 cursor-pointer border-2 border-white shadow-md shadow-slate-200">
+                <img
+                  src={"/special_case/" + item.src}
+                  alt={item.title}
+                  className="w-28 h-24"
+                />
+                <h2 className="custom-font-3 text-black">{item.title}</h2>
+                <h4 className="bg-[#F0EDEE] rounded-md p-1">{item.price}</h4>
+              </div>
+            </Link>
+          ))}
+        </div>
+      )}
+
+      {/* Normal Kasalar Başlığı ve Çizgisi */}
+      <div className="flex items-center justify-between w-full mt-10">
+        <img src="crown.png" className="" />
+        <h2 className="text-2xl font-bold text-white ">GABEN CASES</h2>
+        <div className="border-t border-gray-500 w-3/4 ml-5"></div>
+        {/* Show/Hide Butonu */}
+        <button
+          onClick={() => setShowNormalCases(!showNormalCases)}
+          className="text-gray-400 flex items-center cursor-pointer ml-2"
+        >
+          {showNormalCases ? (
+            <>
+              HIDE <span className="ml-1">▲</span>
+            </>
+          ) : (
+            <>
+              SHOW <span className="ml-1">▼</span>
+            </>
+          )}
+        </button>
       </div>
 
-      {/* Show More / Show Less Butonu */}
-      <div className="ml-auto mt-2 mr-5 mb-5">
-        {!showMore ? (
-          <button
-            onClick={() => setShowMore(true)}
-            className="bg-teal-700 text-white rounded-lg px-4 py-2"
-          >
-            Show More
-          </button>
-        ) : (
-          <button
-            onClick={() => setShowMore(false)}
-            className="bg-red-500 text-white rounded-lg px-4 py-2"
-          >
-            Show Less
-          </button>
-        )}
-      </div>
+      {/* Normal Kasalar (gizlenebilir) */}
+      {showNormalCases && (
+        <div className="w-full flex flex-wrap justify-center">
+          {cases.map((item, index) => (
+            <Link key={index} href={item.link ?? "#"} passHref>
+              <div className="bg-[#D4A373] w-48 h-48 rounded-2xl flex flex-col justify-center items-center gap-3 ml-5 mt-5 cursor-pointer border-2 border-white shadow-md shadow-slate-200">
+                <img
+                  src={"/cases/" + item.src}
+                  alt={item.title}
+                  className="w-28 h-24"
+                />
+                <h2 className=" custom-font-3 text-black ">{item.title}</h2>
+                <h4 className="bg-[#F0EDEE] rounded-md p-1">{item.price}</h4>
+              </div>
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

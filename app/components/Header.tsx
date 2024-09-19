@@ -4,14 +4,14 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="w-full header custom-font-1 relative py-24 bg-gradient-to-b from-[#ffe734] to-[#43a498]">
+    <div className="w-full header custom-font-1 relative py-24 bg-gradient-to-b from-[#636262] to-[#000000]">
       <div className=" w-1/3 text-center mx-auto font-bold">
-        <h2 className="text-8xl text-purple-950">OPEN CASE</h2>
-        <h2 className="text-8xl text-purple-950">- NOW -</h2>
+        <h2 className="text-8xl text-[#800020]">OPEN CASE</h2>
+        <h2 className="text-8xl text-[#800020]">- NOW -</h2>
         <div className="mt-10">
           <Link
             href={"/kilowatt"}
-            className="shadow-lg bg-app-yellow-1 px-5 py-3 text-xl rounded-full text-purple-950"
+            className="shadow-lg bg-[#FFD700] px-5 py-3 text-xl rounded-full text-[#4B0082]"
           >
             OPEN YOUR FREE CASE NOW
           </Link>
