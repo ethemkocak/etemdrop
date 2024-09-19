@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { supabase } from "../lib/supabaseClient";
-
+import { BACKEND_URL } from "../config";
 const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -11,22 +10,26 @@ const Signup = () => {
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        data: {
-          username, // Kullanıcı adı gibi ek bilgileri ekleyebilirsiniz
+    try {
+      const response = await fetch(BACKEND_URL + "/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      },
-    });
+        body: JSON.stringify({ username, email, password }),
+      });
 
-    if (error) {
-      setError("Signup failed. Please try again.");
-    } else {
-      setSuccess(
-        "Signup successful! Please check your email for confirmation."
-      );
+      // Check if the response is ok (status code 200-299)
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status} - ${response.statusText}`);
+      }
+
+      // Parse JSON response
+      const data = await response.json();
+      setSuccess("Signup successful!");
+      return data; // Return the response data
+    } catch (error) {
+      setError("Signup failed. Please check your credentials.");
     }
   };
 

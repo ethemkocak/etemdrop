@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { supabase } from "../lib/supabaseClient";
+import { BACKEND_URL } from "../config";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -10,15 +10,26 @@ const Login = () => {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
+    try {
+      const response = await fetch(BACKEND_URL + "/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }), // Convert JavaScript object to JSON
+      });
 
-    if (error) {
-      setError("Login failed. Please check your credentials.");
-    } else {
+      // Check if the response is ok (status code 200-299)
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status} - ${response.statusText}`);
+      }
+
+      // Parse JSON response
+      const data = await response.json();
       setSuccess("Login successful!");
+      return data; // Return the response data
+    } catch (error) {
+      setError("Login failed. Please check your credentials.");
     }
   };
 
