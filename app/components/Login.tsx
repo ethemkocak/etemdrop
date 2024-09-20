@@ -42,7 +42,7 @@ const Login = () => {
       setSuccess("Login successful!");
 
       // Kullanıcıyı başarılı girişten sonra yönlendir
-      router.push("/main-menu"); // "main-menu" sayfasına yönlendir
+      router.push("/"); // "main-menu" sayfasına yönlendir
     } catch (error: unknown) {
       if (error instanceof Error) {
         setError(

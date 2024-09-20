@@ -9,14 +9,12 @@ const Navbar = () => {
   useEffect(() => {
     // Oturum bilgisini yerel depolamadan al
     const token = localStorage.getItem("token");
-
     if (token) {
       setIsLoggedIn(true); // Token varsa kullanıcı giriş yapmıştır
     } else {
       setIsLoggedIn(false); // Token yoksa kullanıcı giriş yapmamıştır
     }
   }, []);
-
   const handleLogout = async () => {
     // Çıkış işlemi
     localStorage.removeItem("token"); // Token'ı yerel depolamadan kaldır
