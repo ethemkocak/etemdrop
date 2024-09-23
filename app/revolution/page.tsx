@@ -127,7 +127,7 @@ const revolutionItems = [
 
 const revolutionKnives = [
   {
-    src: getImagePath("gloves", "random", "Gold"),
+    src: getImagePath("gloves", "random", "gold"),
     title: "Gloves",
     chance: "0.25%",
     rarity: "gold",
