@@ -35,11 +35,7 @@ const getRarityColor = (rarity?: string) => {
   }
 };
 
-const CaseAnimation: React.FC<CaseAnimationProps> = ({
-  items,
-  knives,
-  caseName,
-}) => {
+const CaseAnimation: React.FC<CaseAnimationProps> = ({ items, knives }) => {
   const [isSpinning, setIsSpinning] = useState(false);
   const [selectedItem, setSelectedItem] = useState<CaseItem | null>(null);
   const [showModal, setShowModal] = useState(false); // New state to control modal visibility
@@ -119,7 +115,7 @@ const CaseAnimation: React.FC<CaseAnimationProps> = ({
               key={index}
               className={`p-2 ${getRarityColor(item.rarity)} rounded-lg`}
             >
-              <img src={`/${caseName}/${item.src}`} alt={item.title} />
+              <img src={`${item.src}`} alt={item.title} />
               <p className="text-center text-white font-bold">{item.title}</p>
               <div className="text-center text-white">
                 {item.rarity?.toUpperCase()}
@@ -152,7 +148,7 @@ const CaseAnimation: React.FC<CaseAnimationProps> = ({
             <div className="p-10 bg-white rounded-lg text-center">
               <h2 className="text-2xl font-bold">You won:</h2>
               <img
-                src={`/${caseName}/${selectedItem.src}`}
+                src={`${selectedItem.src}`}
                 alt={selectedItem.title}
                 className="my-4"
               />
