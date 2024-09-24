@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import Livebar from "./components/Livebar";
 //import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
@@ -17,6 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-[#181818]">
         <Navbar />
+        <Livebar />
         {children}
       </body>
     </html>

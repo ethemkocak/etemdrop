@@ -1,4 +1,5 @@
 "use client";
+import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -196,7 +197,10 @@ const Cases = () => {
     <div className="w-3/4 mx-auto flex flex-col justify-center items-center mt-10 relative">
       {/* Özel Kasalar Başlığı ve Çizgisi */}
       <div className="flex items-center justify-between w-full">
-        <img src="diamond.png" />
+        <Icon
+          icon="game-icons:cut-diamond"
+          className="text-blue-600 h-10 w-10"
+        />
         <h2 className="text-2xl font-bold text-white">SPECIAL CASES</h2>
         <div className="border-t border-gray-500 w-3/4 ml-5"></div>
         {/* Show/Hide Butonu */}
@@ -237,7 +241,7 @@ const Cases = () => {
 
       {/* Normal Kasalar Başlığı ve Çizgisi */}
       <div className="flex items-center justify-between w-full mt-10">
-        <img src="crown.png" className="" />
+        <Icon icon="fluent-emoji-flat:crown" className="h-10 w-10" />
         <h2 className="text-2xl font-bold text-white ">GABEN CASES</h2>
         <div className="border-t border-gray-500 w-3/4 ml-5"></div>
         {/* Show/Hide Butonu */}

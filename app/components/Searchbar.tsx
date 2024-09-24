@@ -1,3 +1,4 @@
+import { Icon } from "@iconify/react";
 import React from "react";
 
 const Searchbar = () => {
@@ -6,11 +7,17 @@ const Searchbar = () => {
       <div className="text-2xl text-yellow-200">OPEN CASE</div>
       <div className="flex gap-5">
         <div className="flex items-center text-green-500 custom-font-2 text-xl">
-          <img src="casebattle.png" className="h-4 w-4 mr-2" />
+          <Icon
+            icon={"material-symbols:swords"}
+            className="w-5 h-5 mr-1 text-green-500"
+          />
           Case Battle
         </div>
         <div className="flex items-center text-blue-400 custom-font-2 text-xl">
-          <img src="upgrader.png" className="h-4 w-4 mr-2" />
+          <Icon
+            icon="jam:pie-chart-alt"
+            className="text-blue-400 w-5 h-5 mr-1"
+          />
           Upgrader
         </div>
       </div>
