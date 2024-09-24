@@ -1,10 +1,8 @@
 "use client"; // Next.js kullanıyorsanız bu gerekli
-import React, { useState } from "react";
+import React from "react";
 import { Icon } from "@iconify/react";
 
 const Menu = () => {
-  // Hover efektini aktif hale getiren fonksiyonlar
-
   return (
     <div className="flex flex-col items-center text-white p-5">
       <div className="w-full max-w-5xl mb-8">
