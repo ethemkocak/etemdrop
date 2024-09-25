@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react";
 
 const Menu = () => {
   return (
-    <div className="flex flex-col items-center text-white p-5">
+    <div className="flex flex-col  text-white p-5">
       <div className="w-full max-w-5xl mb-8">
         <h3 className="text-xl mb-4">Account</h3>
         <div className="grid grid-cols-4 gap-4">

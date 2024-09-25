@@ -74,11 +74,11 @@ const Navbar = () => {
 
       {/* Menü açıldığında gösterilir */}
       {isMenuOpen && (
-        <div className="absolute top-full right-0 w-96 bg-gray-800 p-4 z-50">
+        <div className="absolute top-full right-0 w-96 bg-[#181818] p-4 z-50">
           <Menu /> {/* Menu bileşeni burada açılır */}
           <button
             onClick={handleLogout}
-            className="text-white bg-red-400 rounded-md p-3"
+            className="text-white bg-red-400 rounded-md p-3 ml-36"
           >
             Çıkış Yap
           </button>

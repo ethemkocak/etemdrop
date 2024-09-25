@@ -194,7 +194,7 @@ const Cases = () => {
   ];
 
   return (
-    <div className="w-3/4 mx-auto flex flex-col justify-center items-center mt-10 relative">
+    <div className="w-3/4 mx-auto flex flex-col justify-center items-center mt-10 relative ">
       {/* Özel Kasalar Başlığı ve Çizgisi */}
       <div className="flex items-center justify-between w-full">
         <Icon
