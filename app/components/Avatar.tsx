@@ -1,7 +1,10 @@
-"use client";
+"use client"; // Bu satır bileşenin sadece tarayıcıda çalışmasını sağlar
 import React, { useState } from "react";
-import AvatarEditor from "react-avatar-edit";
+import dynamic from "next/dynamic"; // Dinamik import için next/dynamic kullanılır
 import { Icon } from "@iconify/react";
+
+// AvatarEditor'u dinamik olarak yükleyip, SSR'yi devre dışı bırakıyoruz
+const AvatarEditor = dynamic(() => import("react-avatar-edit"), { ssr: false });
 
 const ProfileAvatar = () => {
   const [preview, setPreview] = useState<string | null>(null); // Avatar önizlemesi
