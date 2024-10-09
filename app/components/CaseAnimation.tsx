@@ -107,6 +107,10 @@ const CaseAnimation: React.FC<CaseAnimationProps> = ({ items, knives }) => {
 
   return (
     <div key={key} className="relative">
+      <div className="w-full flex justify-center">
+        <Icon icon="formkit:caretdown" className="text-white" />
+      </div>
+
       <div className={`relative ${selectedItem ? "pointer-events-none" : ""}`}>
         {/* Slider component with custom settings */}
         <Slider {...settings} ref={sliderRef}>
@@ -124,17 +128,18 @@ const CaseAnimation: React.FC<CaseAnimationProps> = ({ items, knives }) => {
           ))}
         </Slider>
       </div>
-
-      {/* Button to trigger the animation */}
-      <button
-        onClick={handleStartAnimation}
-        className="text-white z-50"
-        disabled={isSpinning}
-      >
-        {isSpinning ? "Spinning..." : "Open Case"}
-      </button>
       <div className="w-full flex justify-center">
-        <Icon icon={"ion:arrow-up-outline"} className="w-10 h-10 text-white" />
+        <Icon icon="formkit:caretup" className="text-white" />
+      </div>
+      {/* Button to trigger the animation */}
+      <div className="flex justify-center content-center">
+        <button
+          onClick={handleStartAnimation}
+          className="text-white z-50 bg-stone-700 h-10 w-24 rounded-md mt-2"
+          disabled={isSpinning}
+        >
+          {isSpinning ? "Spinning..." : "Open Case"}
+        </button>
       </div>
 
       {/* Display the selected item after spinning */}
@@ -164,6 +169,31 @@ const CaseAnimation: React.FC<CaseAnimationProps> = ({ items, knives }) => {
           </div>
         </>
       )}
+
+      {/* Display Case Content */}
+      <div className="text-white mt-10">
+        <h3 className="text-xl font-bold mb-4 flex justify-center">
+          Case Content
+        </h3>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          {allItems.map((item, index) => (
+            <div
+              key={index}
+              className={`p-2 ${getRarityColor(
+                item.rarity
+              )} rounded-lg flex flex-col items-center`}
+            >
+              <img
+                src={`${item.src}`}
+                alt={item.title}
+                className="w-16 h-16 mb-2"
+              />
+              <p className="text-center text-sm font-semibold">{item.title}</p>
+              <p className="text-center text-xs">{item.chance}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

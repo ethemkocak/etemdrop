@@ -1,4 +1,5 @@
 import { Icon } from "@iconify/react";
+import Link from "next/link";
 import React from "react";
 
 const Searchbar = () => {
@@ -13,13 +14,16 @@ const Searchbar = () => {
           />
           Case Battle
         </div>
-        <div className="flex items-center text-blue-400 custom-font-2 text-xl">
+        <Link
+          href={"/upgrader"}
+          className="flex items-center text-blue-400 custom-font-2 text-xl"
+        >
           <Icon
             icon="jam:pie-chart-alt"
             className="text-blue-400 w-5 h-5 mr-1"
           />
           Upgrader
-        </div>
+        </Link>
       </div>
     </div>
   );
