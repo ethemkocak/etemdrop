@@ -16,9 +16,12 @@ const ProfileAvatar = () => {
   };
 
   const onBeforeFileLoad = (elem: React.ChangeEvent<HTMLInputElement>) => {
-    if (elem.target.files[0].size > 2000000) {
-      alert("Dosya boyutu 2MB'den büyük olamaz.");
-      elem.target.value = ""; // Büyük dosyayı reddet
+    if (elem.target.files && elem.target.files.length > 0) {
+      const file = elem.target.files[0];
+      if (file.size > 2000000) {
+        alert("Dosya boyutu 2MB'den büyük olamaz.");
+        elem.target.value = ""; // Büyük dosyayı reddet
+      }
     }
   };
 
@@ -51,7 +54,6 @@ const ProfileAvatar = () => {
               onClose={onClose}
               onBeforeFileLoad={onBeforeFileLoad}
               label="Upload Image"
-              borderRadius={150} // Avatarı dairesel keser
             />
             <div className="flex justify-end space-x-4 mt-4">
               <button

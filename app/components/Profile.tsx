@@ -6,7 +6,7 @@ import { Icon } from "@iconify/react";
 
 const Profile = () => {
   const [username, setUsername] = useState("");
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     // API'den username'i çekmek için fetch isteği
@@ -21,11 +21,11 @@ const Profile = () => {
         if (response.ok) {
           setUsername(data.username);
         } else {
-          setError(data.message);
+          setError(data.message); // Hata mesajını set ediyoruz
         }
       } catch (error) {
         console.error("Error fetching username:", error);
-        setError("Failed to fetch user data");
+        setError("Failed to fetch user data"); // Burada hata mesajını gönderiyoruz
       }
     };
 
