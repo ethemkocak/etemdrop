@@ -7,13 +7,16 @@ const Searchbar = () => {
     <div className="h-16 w-full flex items-center justify-between bg-[#525151] px-4">
       <div className="text-2xl text-yellow-200">OPEN CASE</div>
       <div className="flex gap-5">
-        <div className="flex items-center text-green-500 custom-font-2 text-xl">
+        <Link
+          href={"/casebattle"}
+          className="flex items-center text-green-500 custom-font-2 text-xl"
+        >
           <Icon
             icon={"material-symbols:swords"}
             className="w-5 h-5 mr-1 text-green-500"
           />
           Case Battle
-        </div>
+        </Link>
         <Link
           href={"/upgrader"}
           className="flex items-center text-blue-400 custom-font-2 text-xl"

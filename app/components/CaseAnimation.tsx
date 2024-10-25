@@ -189,7 +189,7 @@ const CaseAnimation: React.FC<CaseAnimationProps> = ({ items, knives }) => {
                 className="w-16 h-16 mb-2"
               />
               <p className="text-center text-sm font-semibold">{item.title}</p>
-              <p className="text-center text-xs">{item.chance}</p>
+              <p className="text-center text-xs flex ">{item.chance}</p>
             </div>
           ))}
         </div>
