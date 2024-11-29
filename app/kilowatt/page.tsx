@@ -24,103 +24,104 @@ const kilowattItems = [
   {
     src: getImagePath("assault", "ak47", "inheritance"),
     title: "AK-47 | Inheritance",
-    chance: "0.06%",
+    chance: "0.32%", // 0.64% / 2
     rarity: "covert",
   },
   {
     src: getImagePath("sniper", "awp", "chrome_cannon"),
     title: "AWP | Chrome Cannon",
-    chance: "0.11%",
+    chance: "0.32%", // 0.64% / 2
     rarity: "covert",
   },
   {
     src: getImagePath("assault", "m4a1s", "black_lotus"),
     title: "M4A1-S | Black Lotus",
-    chance: "0.17%",
+    chance: "1.06%", // 3.2% / 3
     rarity: "classified",
   },
   {
     src: getImagePath("heavy", "zeus", "olympus"),
     title: "Zeus x27 | Olympus",
-    chance: "0.29%",
+    chance: "1.06%", // 3.2% / 3
     rarity: "classified",
   },
   {
     src: getImagePath("pistols", "usp-s", "jawbreaker"),
     title: "USP-S | Jawbreaker",
-    chance: "0.31%",
-    rarity: "restricted",
+    chance: "1.06%", // 3.2% / 3
+    rarity: "classified",
   },
   {
     src: getImagePath("pistols", "glock18", "block_18"),
     title: "Glock-18 | Block-18",
-    chance: "0.47%",
+    chance: "3.19%", // 15.98% / 5
     rarity: "restricted",
   },
   {
     src: getImagePath("heavy", "sawed-off", "analog_input"),
     title: "Sawed-Off | Analog Input",
-    chance: "0.54%",
+    chance: "3.19%", // 15.98% / 5
+    rarity: "restricted",
+  },
+  {
+    src: getImagePath("smg", "mp7", "just_smile"),
+    title: "MP7 | Just Smile",
+    chance: "3.19%", // 15.98% / 5
     rarity: "restricted",
   },
   {
     src: getImagePath("assault", "m4a4", "etch_lord"),
     title: "M4A4 | Etch Lord",
-    chance: "0.58%",
+    chance: "3.19%", // 15.98% / 5
     rarity: "restricted",
   },
   {
     src: getImagePath("pistols", "five-seven", "hybrid"),
     title: "Five-SeveN | Hybrid",
-    chance: "0.58%",
-    rarity: "mil-spec",
+    chance: "3.19%", // 15.98% / 5
+    rarity: "restricted",
   },
-  {
-    src: getImagePath("smg", "mp7", "just_smile"),
-    title: "MP7 | Just Smile",
-    chance: "0.59%",
-    rarity: "mil-spec",
-  },
+
   {
     src: getImagePath("smg", "mac-10", "light_box"),
     title: "MAC-10 | Light Box",
-    chance: "0.73%",
+    chance: "11.41%", // 79.92% / 7
     rarity: "mil-spec",
   },
   {
     src: getImagePath("pistols", "dual_berettas", "hideout"),
     title: "Dual Berettas | Hideout",
-    chance: "0.84%",
+    chance: "11.41%", // 79.92% / 7
     rarity: "mil-spec",
   },
   {
     src: getImagePath("sniper", "ssg_08", "dezastre"),
     title: "SSG 08 | Dezastre",
-    chance: "0.90%",
+    chance: "11.41%", // 79.92% / 7
     rarity: "mil-spec",
   },
   {
     src: getImagePath("heavy", "xm1014", "irezumi"),
     title: "XM1014 | Irezumi",
-    chance: "0.95%",
+    chance: "11.41%", // 79.92% / 7
     rarity: "mil-spec",
   },
   {
     src: getImagePath("heavy", "nova", "dark_sigil"),
     title: "Nova | Dark Sigil",
-    chance: "0.96%",
+    chance: "11.41%", // 79.92% / 7
     rarity: "mil-spec",
   },
   {
     src: getImagePath("smg", "ump-45", "motorized"),
     title: "UMP-45 | Motorized",
-    chance: "0.98%",
+    chance: "11.41%", // 79.92% / 7
     rarity: "mil-spec",
   },
   {
     src: getImagePath("pistols", "tec-9", "slag"),
     title: "Tec-9 | Slag",
-    chance: "0.99%",
+    chance: "11.41%", // 79.92% / 7
     rarity: "mil-spec",
   },
 ];
@@ -129,7 +130,7 @@ const kilowattKnives = [
   {
     src: getImagePath("knives", "random", "gold"),
     title: "Random Knife",
-    chance: "0.26%",
+    chance: "0.26%", // Exceedingly Rare Special
     rarity: "gold",
   },
 ];
