@@ -36,7 +36,7 @@ const Livebar = () => {
   return (
     <div className="bg-[#323232] flex custom-font-4">
       <div className="flex flex-col items-center text-center bg-[#414141] text-white p-4 w-32">
-        <h3 className="text-xl font-semibold">Aktif Oyuncu</h3>
+        <h3 className="text-xl font-semibold">LiveDrop</h3>
         <p className="text-green-500 text-lg flex mr-4">
           <Icon icon="svg-spinners:pulse" className="mt-1" />
           {activePlayers.toLocaleString()} {/* Aktif oyuncu sayısını göster */}

@@ -1,7 +1,13 @@
 import React from "react";
 
 const page = () => {
-  return <div className="text-white">Case Battle</div>;
+  return (
+    <div>
+      <div className="flex text-white text-3xl justify-center justify-self-center mt-14">
+        Coming soon
+      </div>
+    </div>
+  );
 };
 
 export default page;

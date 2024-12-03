@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import localFont from "next/font/local";
 import Navbar from "./components/Navbar";
 import Livebar from "./components/Livebar";
-//import Footer from "./components/Footer";
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "Etemdrop",
@@ -20,6 +21,7 @@ export default function RootLayout({
         <Navbar />
         <Livebar />
         {children}
+        <Footer />
       </body>
     </html>
   );

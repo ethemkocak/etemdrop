@@ -80,13 +80,13 @@ const Navbar = () => {
               href={"/login"}
               className="text-white bg-[#0077FF] rounded-md p-3"
             >
-              Giriş Yap
+              Log in
             </Link>
             <Link
               href={"/signup"}
               className="text-white bg-[#0077FF] rounded-md p-3"
             >
-              Kayıt Ol
+              Sign up
             </Link>
           </>
         )}
@@ -100,7 +100,7 @@ const Navbar = () => {
             onClick={handleLogout}
             className="text-white bg-red-400 rounded-md p-3 ml-36"
           >
-            Çıkış Yap
+            Log Out
           </button>
         </div>
       )}

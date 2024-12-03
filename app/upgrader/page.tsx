@@ -3,8 +3,8 @@ import React from "react";
 const Page = () => {
   return (
     <div>
-      <div>
-        <h2 className="text-white ">Upgrader</h2>
+      <div className="flex text-white text-3xl justify-center justify-self-center mt-14">
+        Coming soon
       </div>
     </div>
   );
