@@ -19,7 +19,7 @@ const Footer = () => {
       </Link>
 
       {/* Copyright and Disclaimer */}
-      <div className="text-center text-sm">
+      <div className="text-center text-sm open-sans">
         <p>© 2024 Copyright Ethem Koçak</p>
         <p>This site is a simulation and does not represent a real platform.</p>
       </div>

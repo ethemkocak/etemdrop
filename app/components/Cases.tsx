@@ -231,7 +231,7 @@ const Cases = () => {
                   alt={item.title}
                   className="w-28 h-24"
                 />
-                <h2 className="custom-font-3 text-black">{item.title}</h2>
+                <h2 className="bebas-neue-regular text-black">{item.title}</h2>
                 <h4 className="bg-[#F0EDEE] rounded-md p-1">{item.price}</h4>
               </div>
             </Link>
@@ -272,7 +272,7 @@ const Cases = () => {
                   alt={item.title}
                   className="w-28 h-24"
                 />
-                <h2 className=" custom-font-3 text-black ">{item.title}</h2>
+                <h2 className="bebas-neue-regular text-black ">{item.title}</h2>
                 <h4 className="bg-[#F0EDEE] rounded-md p-1">{item.price}</h4>
               </div>
             </Link>
