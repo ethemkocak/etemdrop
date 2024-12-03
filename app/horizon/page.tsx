@@ -43,7 +43,7 @@ const horizonItems = [
     rarity: "classified",
   },
   {
-    src: getImagePath("assault", "famas", "Eye_Of_Athena"),
+    src: getImagePath("assault", "famas", "Eye_of_Athena"),
     title: "Famas | Eye Of Athena",
     chance: "1.06%",
     rarity: "classified",

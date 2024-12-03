@@ -74,7 +74,7 @@ const prisma2Items = [
     rarity: "restricted",
   },
   {
-    src: getImagePath("heavy", "Sawed-off", "Apocalypto"),
+    src: getImagePath("heavy", "sawed-off", "Apocalypto"),
     title: "Sawed-Off | Apocalypto",
     chance: "3.19%",
     rarity: "restricted",

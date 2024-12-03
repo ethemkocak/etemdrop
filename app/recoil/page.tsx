@@ -89,7 +89,7 @@ const recoilItems = [
 
   // Mil-Spec (Mavi): %11.41
   {
-    src: getImagePath("assault", "m4a4", "Poly_mag"),
+    src: getImagePath("assault", "m4a4", "Poly_Mag"),
     title: "M4A4 | Poly Mag",
     chance: "11.41%",
     rarity: "mil-spec",

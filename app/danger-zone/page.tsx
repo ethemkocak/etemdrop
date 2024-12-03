@@ -119,7 +119,7 @@ const DangerItems = [
     rarity: "mil-spec",
   },
   {
-    src: getImagePath("heavy", "Nova", "Wood_Fired"),
+    src: getImagePath("heavy", "nova", "Wood_Fired"),
     title: "Nova | Wood Fired",
     chance: "11.41%",
     rarity: "mil-spec",

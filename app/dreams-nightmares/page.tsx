@@ -63,8 +63,8 @@ const dreamItems = [
     rarity: "restricted",
   },
   {
-    src: getImagePath("pistols", "usp-s", "Ticket_To_Hell"),
-    title: "USP-S | Ticket To Hell",
+    src: getImagePath("pistols", "usp-s", "Ticket_to_Hell"),
+    title: "USP-S | Ticket to Hell",
     chance: "11.41%",
     rarity: "restricted",
   },
@@ -101,7 +101,7 @@ const dreamItems = [
     rarity: "mil-spec",
   },
   {
-    src: getImagePath("SMG", "mac-10", "Ensnared"),
+    src: getImagePath("smg", "mac-10", "Ensnared"),
     title: "Mac-10 | Ensnared",
     chance: "11.41%",
     rarity: "mil-spec",
